@@ -22,6 +22,16 @@ class Terrain
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="departure")
+     */
+    private $departures;
+
+    /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="arrival")
+     */
+    private $arrivals;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=128)
@@ -278,5 +288,85 @@ class Terrain
     public function getCountry()
     {
         return $this->country;
+    }
+
+    public function __toString()
+    {
+        return $this->icao . ', ' . $this->name . ', ' . $this->zipcode;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add departure
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $departure
+     *
+     * @return Terrain
+     */
+    public function addDeparture(\WCS\CoavBundle\Entity\Flight $departure)
+    {
+        $this->departures[] = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Remove departure
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $departure
+     */
+    public function removeDeparture(\WCS\CoavBundle\Entity\Flight $departure)
+    {
+        $this->departures->removeElement($departure);
+    }
+
+    /**
+     * Get departures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDepartures()
+    {
+        return $this->departures;
+    }
+
+    /**
+     * Add arrival
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
+     *
+     * @return Terrain
+     */
+    public function addArrival(\WCS\CoavBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals[] = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Remove arrival
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
+     */
+    public function removeArrival(\WCS\CoavBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals->removeElement($arrival);
+    }
+
+    /**
+     * Get arrivals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArrivals()
+    {
+        return $this->arrivals;
     }
 }

@@ -22,6 +22,10 @@ class PlaneModel
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="plane")
+     */
+    private $flights;
+    /**
      * @var string
      *
      * @ORM\Column(name="model", type="string", length=128)
@@ -187,4 +191,3 @@ class PlaneModel
         return $this->isAvailable;
     }
 }
-
