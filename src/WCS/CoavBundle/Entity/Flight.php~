@@ -74,11 +74,9 @@ class Flight
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="pilot", type="string", length=32)
+     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="flights")
      */
-    private $pilot;
+    private $pilots;
 
     /**
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\PlaneModel", inversedBy="flights")
@@ -271,29 +269,6 @@ class Flight
         return $this->description;
     }
 
-    /**
-     * Set pilot
-     *
-     * @param string $pilot
-     *
-     * @return Flight
-     */
-    public function setPilot($pilot)
-    {
-        $this->pilot = $pilot;
-
-        return $this;
-    }
-
-    /**
-     * Get pilot
-     *
-     * @return string
-     */
-    public function getPilot()
-    {
-        return $this->pilot;
-    }
 
     /**
      * Set plane
@@ -348,6 +323,7 @@ class Flight
     public function __construct()
     {
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pilots = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -382,5 +358,45 @@ class Flight
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Add pilot
+     *
+     * @param \WCS\CoavBundle\Entity\User $pilot
+     *
+     * @return Flight
+     */
+    public function addPilot(\WCS\CoavBundle\Entity\User $pilot)
+    {
+        $this->pilots[] = $pilot;
+
+        return $this;
+    }
+
+    /**
+     * Remove pilot
+     *
+     * @param \WCS\CoavBundle\Entity\User $pilot
+     */
+    public function removePilot(\WCS\CoavBundle\Entity\User $pilot)
+    {
+        $this->pilots->removeElement($pilot);
+    }
+
+
+    /**
+     * Get pilots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPilots()
+    {
+        return $this->pilots;
+    }
+
+    public function __toString()
+    {
+        return 'Vol No :' . $this->id .'. De ' . $this->departure . ' à ' . $this->arrival;
     }
 }

@@ -22,7 +22,12 @@ class User
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", mappedBy="passengers")
+     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="pilots")
+     */
+    private $flights;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
      */
     private $reservations;
 
@@ -90,7 +95,7 @@ class User
     private $reviews;
 
     /**
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review",mappedBy="userRated")
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review", mappedBy="userRated")
      *
      */
     private $rates;
@@ -413,6 +418,7 @@ class User
     public function __construct()
     {
         $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -495,5 +501,44 @@ class User
     public function getRates()
     {
         return $this->rates;
+    }
+
+    /**
+     * Add flight
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flight
+     *
+     * @return User
+     */
+    public function addFlight(\WCS\CoavBundle\Entity\Flight $flight)
+    {
+        $this->flights[] = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Remove flight
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flight
+     */
+    public function removeFlight(\WCS\CoavBundle\Entity\Flight $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
+    }
+
+    public function __toString()
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }

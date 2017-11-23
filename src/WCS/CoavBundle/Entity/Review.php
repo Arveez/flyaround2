@@ -29,7 +29,7 @@ class Review
     private $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviews")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="rates")
      */
     private $userRated;
 

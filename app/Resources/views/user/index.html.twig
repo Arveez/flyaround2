@@ -15,7 +15,7 @@
                 <th>Birthdate</th>
                 <th>Creationdate</th>
                 <th>Role</th>
-                <th>Reviews</th>
+                <th>Reservations</th>
                 <th>Isacertifiedpilot</th>
                 <th>Isactive</th>
                 <th>Actions</th>
@@ -33,7 +33,11 @@
                 <td>{% if user.birthDate %}{{ user.birthDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if user.creationDate %}{{ user.creationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ user.role }}</td>
-                <td>{{ user.reviews }}</td>
+                <td>
+                    {% for reservation in user.reservations %}
+                    <p>Réservation No {{ reservation }}</p>
+                    {% endfor %}
+                </td>
                 <td>{% if user.isACertifiedPilot %}Yes{% else %}No{% endif %}</td>
                 <td>{% if user.isActive %}Yes{% else %}No{% endif %}</td>
                 <td>

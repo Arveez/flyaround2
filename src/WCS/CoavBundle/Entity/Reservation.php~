@@ -36,7 +36,7 @@ class Reservation
     private $publicationDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reservations")
+     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="reservations")
      */
     private $passengers;
 
@@ -238,5 +238,11 @@ class Reservation
     public function removePassenger(\WCS\CoavBundle\Entity\User $passenger)
     {
         $this->passengers->removeElement($passenger);
+    }
+
+
+    public function __toString()
+    {
+        return 'reservation No : ' . $this->id;
     }
 }

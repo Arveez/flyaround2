@@ -2,20 +2,11 @@
 
 {% block body %}
     <h1>Flight</h1>
-
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ flight.id }}</td>
-            </tr>
-            <tr>
-                <th>Departure</th>
-                <td>{{ flight.departure }}</td>
-            </tr>
-            <tr>
-                <th>Arrival</th>
-                <td>{{ flight.arrival }}</td>
             </tr>
             <tr>
                 <th>Nbfreeseats</th>
@@ -34,16 +25,28 @@
                 <td>{% if flight.publicationDate %}{{ flight.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ flight.description }}</td>
+                <th>Departure</th>
+                <td>{{ flight.departure }}</td>
             </tr>
             <tr>
-                <th>Pilot</th>
-                <td>{{ flight.pilot }}</td>
+                <th>Arrival</th>
+                <td>{{ flight.arrival }}</td>
+            </tr>
+            <tr>
+                <th>Pilot(s)</th>
+                <td>
+                    {% for one in flight.pilots %}
+                    {{ one.lastName }}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Plane</th>
                 <td>{{ flight.plane }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ flight.description }}</td>
             </tr>
             <tr>
                 <th>Wasdone</th>

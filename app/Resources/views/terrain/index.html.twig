@@ -5,25 +5,21 @@
 
     <table>
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Icao</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Zipcode</th>
-            <th>Country</th>
-            <th>taking off</th>
-            <th>arriving</th>
-            <th>Actions</th>
-
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Icao</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for terrain in terrains %}
-
             <tr>
                 <td><a href="{{ path('terrain_show', { 'id': terrain.id }) }}">{{ terrain.id }}</a></td>
                 <td>{{ terrain.name }}</td>
@@ -34,18 +30,6 @@
                 <td>{{ terrain.city }}</td>
                 <td>{{ terrain.zipcode }}</td>
                 <td>{{ terrain.country }}</td>
-                <td>
-                    {% for departure in terrain.departures %}
-                        {{ departure.id }}
-                        <br/>
-                    {% endfor %}
-                </td>
-                <td>
-                    {% for arrival in terrain.arrivals %}
-                        {{ arrival.id }}
-                        <br/>
-                    {% endfor %}
-                </td>
                 <td>
                     <ul>
                         <li>
@@ -58,5 +42,5 @@
         </tbody>
     </table>
 
-
+    
 {% endblock %}
