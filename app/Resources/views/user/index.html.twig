@@ -16,6 +16,7 @@
                 <th>Creationdate</th>
                 <th>Role</th>
                 <th>Reservations</th>
+                <th>Reviews</th>
                 <th>Isacertifiedpilot</th>
                 <th>Isactive</th>
                 <th>Actions</th>
@@ -36,6 +37,11 @@
                 <td>
                     {% for reservation in user.reservations %}
                     <p>Réservation No {{ reservation }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for review in user.reviews %}
+                        <p>Review No : {{ review }}</p>
                     {% endfor %}
                 </td>
                 <td>{% if user.isACertifiedPilot %}Yes{% else %}No{% endif %}</td>

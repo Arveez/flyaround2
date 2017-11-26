@@ -26,6 +26,14 @@
                 <td>{{ planeModel.planeNbSeats }}</td>
             </tr>
             <tr>
+                <th>Flights</th>
+                <td>
+                    {% for flight in planeModel.flights %}
+                        <p>{{ flight }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
                 <th>Isavailable</th>
                 <td>{% if planeModel.isAvailable %}Yes{% else %}No{% endif %}</td>
             </tr>

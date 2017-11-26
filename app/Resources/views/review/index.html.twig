@@ -10,6 +10,8 @@
                 <th>Text</th>
                 <th>Publicationdate</th>
                 <th>Note</th>
+                <th>Author</th>
+                <th>User Rated</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +22,8 @@
                 <td>{{ review.text }}</td>
                 <td>{% if review.publicationDate %}{{ review.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ review.note }}</td>
+                <td>{{ review.reviewAuthor }}</td>
+                <td>{{ review.userRated }}</td>
                 <td>
                     <ul>
                         <li>

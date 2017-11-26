@@ -42,6 +42,22 @@
                 <td>{{ user.role }}</td>
             </tr>
             <tr>
+                <th>Reservations</th>
+                <td>
+                    {% for resa in user.reservations %}
+                        <p>{{ resa }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Reviews</th>
+                <td>
+                    {% for review in user.reviews %}
+                        <p>Review No : {{ review }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
                 <th>Isacertifiedpilot</th>
                 <td>{% if user.isACertifiedPilot %}Yes{% else %}No{% endif %}</td>
             </tr>
