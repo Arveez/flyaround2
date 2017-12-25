@@ -139,7 +139,7 @@ INSERT INTO `reservation` VALUES (1,2,'2012-01-01 00:00:00',0,1),(2,1,'2012-01-0
 UNLOCK TABLES;
 
 --
--- Table structure for table `review`
+-- Table structure for table `Review`
 --
 
 DROP TABLE IF EXISTS `review`;
@@ -161,7 +161,7 @@ CREATE TABLE `review` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `review`
+-- Dumping data for table `Review`
 --
 
 LOCK TABLES `review` WRITE;

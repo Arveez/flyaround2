@@ -446,7 +446,7 @@ class User
     }
 
     /**
-     * Add review
+     * Add Review
      *
      * @param \WCS\CoavBundle\Entity\Review $review
      *
@@ -460,7 +460,7 @@ class User
     }
 
     /**
-     * Remove review
+     * Remove Review
      *
      * @param \WCS\CoavBundle\Entity\Review $review
      */

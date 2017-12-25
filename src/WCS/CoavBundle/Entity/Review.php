@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Review
  *
- * @ORM\Table(name="review")
+ * @ORM\Table(name="Review")
  * @ORM\Entity(repositoryClass="WCS\CoavBundle\Repository\ReviewRepository")
  */
 class Review
