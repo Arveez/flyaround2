@@ -83,7 +83,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\Column(name="role", type="smallint", nullable=true)
+     * @ORM\Column(name="role", type="string", nullable=true)
      */
     private $role;
 

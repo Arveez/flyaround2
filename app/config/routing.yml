@@ -57,3 +57,7 @@ wcs_coav:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+wcs_coav_listing:
+    resource: "@WCSCoavBundle/Controller/ListingController.php"
+    type:     annotation

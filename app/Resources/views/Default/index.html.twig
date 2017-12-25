@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}WCSCoavBundle:Default:index{% endblock %}
+
+{% block body %}
+<h1>Routes :</h1>
+    <ul>
+        <li>
+            <a href="{{ path('planemodel_index') }}">Voir les avions</a>
+        </li>
+        <li>
+            <a href="{{ path('reservation_index') }}">Voir les rérervations</a>
+        </li>
+        <li>
+            <a href="{{ path('flight_index') }}">Voir les  vols</a>
+        </li>
+        <li>
+            <a href="{{ path('terrain_index') }}">Voir les terrains</a>
+        </li>
+    </ul>
+{% endblock %}
