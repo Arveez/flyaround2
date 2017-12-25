@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<table>
+    <tbody>
+    <tr>
+        <th>Numéro de réservation </th>
+        <td>{{ reservation.id }}</td>
+    </tr>
+    <tr>
+        <th>Numéro de vol</th>
+        <td>{{ flight.id }}</td>
+    </tr>
+    <tr>
+        <th>Siège réservé</th>
+        <td>{{reservation.nbReservedSeats}}</td>
+    </tr>
+    <tr>
+        <th>Départ</th>
+        <td>{{ flight.departure}}</td>
+    </tr>
+    <tr>
+        <th>Arrivée</th>
+        <td>{{ flight.arrival }}</td>
+    </tr>
+    <tr>
+        <th>Avion</th>
+        <td>{{ planemodel.model }}</td>
+    </tr>
+    <tr>
+        <th>Vitesse de croisière</th>
+        <td>{{ planemodel.cruiseSpeed }}</td>
+    </tr>
+    <tr>
+        <th>Description du vol</th>
+        <td>{{ flight.description }}</td>
+    </tr>
+    </tbody>
+</table>
+    <p><a href="/">Page d'accueil</a> </p>
+{% endblock %}
