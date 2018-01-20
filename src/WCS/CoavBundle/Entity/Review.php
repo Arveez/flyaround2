@@ -31,12 +31,12 @@ class Review
     /**
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="rates")
      */
-    private $userRated;
+    private $ratedUser;
 
     /**
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviews")
      */
-    private $reviewAuthor;
+    private $author;
 
     /**
      * @var \DateTime
@@ -138,13 +138,13 @@ class Review
     /**
      * Set reviewAuthor
      *
-     * @param \WCS\CoavBundle\Entity\User $reviewAuthor
+     * @param \WCS\CoavBundle\Entity\User $author
      *
      * @return Review
      */
-    public function setReviewAuthor(\WCS\CoavBundle\Entity\User $reviewAuthor = null)
+    public function setAuthor(\WCS\CoavBundle\Entity\User $author = null)
     {
-        $this->reviewAuthor = $reviewAuthor;
+        $this->author = $author;
 
         return $this;
     }
@@ -154,21 +154,21 @@ class Review
      *
      * @return \WCS\CoavBundle\Entity\User
      */
-    public function getReviewAuthor()
+    public function getAuthor()
     {
-        return $this->reviewAuthor;
+        return $this->author;
     }
 
     /**
      * Set userRated
      *
-     * @param \WCS\CoavBundle\Entity\User $userRated
+     * @param \WCS\CoavBundle\Entity\User $ratedUser
      *
      * @return Review
      */
-    public function setUserRated(\WCS\CoavBundle\Entity\User $userRated = null)
+    public function setRatedUser(\WCS\CoavBundle\Entity\User $ratedUser = null)
     {
-        $this->userRated = $userRated;
+        $this->ratedUser = $ratedUser;
 
         return $this;
     }
@@ -178,9 +178,9 @@ class Review
      *
      * @return \WCS\CoavBundle\Entity\User
      */
-    public function getUserRated()
+    public function getRatedUser()
     {
-        return $this->userRated;
+        return $this->ratedUser;
     }
 
     public function __toString()
