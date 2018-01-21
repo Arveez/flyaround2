@@ -22,7 +22,6 @@ class ReviewType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-
         $builder
             ->add('text', null, array('label' => 'Votre commentaire'))
             ->add('ratedUser',null, array('label' => 'Cible'))
